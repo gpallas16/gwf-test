@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="sharedViewModel"
+            type="com.exampl.gwftest.presentation.dashboard.DashboardViewModel" />
+
+        <variable
+            name="viewModel"
+            type="com.exampl.gwftest.presentation.dashboard.fragment.main.DashboardMainViewModel" />
+
+        <variable
+            name="itemClickListener"
+            type="com.exampl.gwftest.util.binding.BindableRecyclerAdapter.ItemClickListener" />
+
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/parent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:animateLayoutChanges="true"
+            android:orientation="vertical">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/dashboardTotalRv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:overScrollMode="never"
+                android:visibility="@{sharedViewModel.search!=null &amp;&amp; !sharedViewModel.search.empty?View.GONE:View.VISIBLE}"
+                app:listItems="@{viewModel.totalData}" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/dashboardMeasurementRv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fadingEdgeLength="4dp"
+                android:overScrollMode="never"
+                app:itemClickListener="@{itemClickListener}"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:listItems="@{viewModel.measurementsData}" />
+
+        </LinearLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

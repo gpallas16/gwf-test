@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="stateItem"
+            type="com.exampl.gwftest.presentation.dashboard.fragment.detail.item.StateItem" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        >
+
+        <View
+            android:id="@+id/view3"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/divider"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/view4"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginTop="@dimen/item_separator_margin"
+            android:layout_marginBottom="@dimen/item_separator_margin"
+            android:background="@{stateItem.data.color}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view3" />
+
+        <TextView
+            android:id="@+id/textView15"
+            style="@style/TextView.Item.Bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/item_separator_margin"
+            android:text="@{stateItem.data.title}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/view4"
+            app:layout_constraintTop_toBottomOf="@+id/view3"
+            tools:text="Us Water Level" />
+
+        <TextView
+            android:id="@+id/textView16"
+            style="@style/TextView.Item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{stateItem.data.value}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="false" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

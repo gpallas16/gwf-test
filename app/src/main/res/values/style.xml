@@ -1,0 +1,48 @@
+<resources>
+
+    <style name="TextView.Header" parent="android:Widget.TextView">
+        <item name="android:fontFamily">sans-serif-bold</item>
+        <item name="android:textSize">25sp</item>
+        <item name="android:textColor">@color/primary_text</item>
+    </style>
+
+    <style name="TextView.SubHeader" parent="android:Widget.TextView">
+        <item name="android:fontFamily">sans-serif-black</item>
+        <item name="android:textColor">@color/primary_text</item>
+        <item name="android:textSize">17sp</item>
+    </style>
+
+    <style name="TextView.Caption" parent="android:Widget.TextView">
+        <item name="android:textColor">@color/secondary_text</item>
+        <item name="android:textSize">13sp</item>
+    </style>
+
+    <style name="TextView.Item" parent="android:Widget.TextView">
+        <item name="android:textColor">@color/primary_text</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <style name="TextView.Item.Bold" parent="TextView.Item">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+
+    <style name="Button.Primary" parent="Widget.MaterialComponents.Button">
+        <item name="android:textAllCaps">false</item>
+        <item name="android:padding">16dp</item>
+        <item name="android:minWidth">@dimen/buttonMinWidth</item>
+    </style>
+
+    <style name="Button.Secondary" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="android:textAllCaps">false</item>
+        <item name="android:padding">16dp</item>
+        <item name="android:minWidth">@dimen/buttonMinWidth</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Button.Text" parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+</resources>

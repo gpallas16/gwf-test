@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="card_padding">16dp</dimen>
+    <dimen name="section_separator_margin">16dp</dimen>
+    <dimen name="item_separator_margin">16dp</dimen>
+    <dimen name="item_separator_marginHalf">8dp</dimen>
+    <dimen name="widget_full_width_margin">8dp</dimen>
+    <dimen name="buttonMinWidth">150dp</dimen>
+</resources>

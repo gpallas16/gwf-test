@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View"/>
+
+        <variable
+            name="loginClickListener"
+            type="android.view.View.OnClickListener" />
+
+        <variable
+            name="viewModel"
+            type="com.exampl.gwftest.presentation.login.LoginViewModel" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/loginParent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".presentation.login.LoginActivity">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".presentation.login.LoginActivity">
+
+            <TextView
+                android:id="@+id/headerTv"
+                style="@style/TextView.SubHeader"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/app_name"
+                app:layout_constraintBottom_toTopOf="@+id/loginCard"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="packed" />
+
+            <TextView
+                style="@style/TextView.Header"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/widget_full_width_margin"
+                android:layout_marginBottom="@dimen/item_separator_marginHalf"
+                android:text="@string/sign_in"
+                app:layout_constraintBottom_toTopOf="@+id/loginCard"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/loginCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/widget_full_width_margin"
+                android:layout_marginEnd="@dimen/widget_full_width_margin"
+                app:cardElevation="8dp"
+                app:contentPadding="@dimen/card_padding"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/loginUsernameEtLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/email">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/loginUsernameEt"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:ems="10"
+                            android:inputType="textEmailAddress" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/loginPasswordEtLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/item_separator_marginHalf"
+                        android:hint="@string/password">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/loginPasswordEt"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:ems="10"
+                            android:inputType="textPassword" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.button.MaterialButton
+                style="@style/Button.Primary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/widget_full_width_margin"
+                android:layout_marginTop="@dimen/item_separator_margin"
+                android:layout_marginEnd="@dimen/widget_full_width_margin"
+                android:onClick="@{loginClickListener}"
+                android:text="@string/continue_"
+                app:layout_constraintTop_toBottomOf="@+id/loginCard" />
+
+            <ProgressBar
+                android:id="@+id/progressBar"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:indeterminate="true"
+                android:layout_marginStart="@dimen/widget_full_width_margin"
+                android:layout_marginEnd="@dimen/widget_full_width_margin"
+                android:visibility="@{viewModel.loadingData.booleanValue()?View.VISIBLE:View.GONE}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</layout>
